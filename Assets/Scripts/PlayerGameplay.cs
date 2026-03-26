@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -36,6 +38,9 @@ public class PlayerGameplay : MonoBehaviour
 
     private const int _winScore = 40;
 
+    private Animator _toInvisibleSliderAnim;
+    private Animator _topOfLockAnimator;
+
 
     private void OnPress(InputAction.CallbackContext obj)
     {
@@ -70,7 +75,7 @@ public class PlayerGameplay : MonoBehaviour
         scoreText.text = playerMovementScript.speed.ToString();
         highScoreText.text = $"Highscore\n{highScore.ToString()}";
 
-        // Loading credits scene
+        // Win the game
         if (playerMovementScript.speed == _winScore) {
             EndingSequence();
         }
@@ -89,26 +94,24 @@ public class PlayerGameplay : MonoBehaviour
 
     private void EndingSequence()
     {
-        _topOfLock.position += new Vector3(0f, 5f);
+        // Animate unlocking
+        _topOfLockAnimator = _topOfLock.GetComponent<Animator>();
+        _topOfLockAnimator.SetTrigger("Unlock");
 
-        SpriteRenderer sliderSpriteRenderer = GetComponent<SpriteRenderer>();
+        // Animate slider going invisible and getting destroyed
+        _toInvisibleSliderAnim = GetComponent<Animator>();
+        _toInvisibleSliderAnim.SetTrigger("StartAnimation");
 
-        Color sliderColor = sliderSpriteRenderer.color;
-        sliderColor.a = 0;
-        sliderSpriteRenderer.color = sliderColor;
-
-        SpriteRenderer targetSpriteRenderer = _target.GetComponent<SpriteRenderer>();
-
-        Color targetColor = targetSpriteRenderer.color;
-        targetColor.a = 0;
-        targetSpriteRenderer.color = targetColor;
-
-        gameObject.SetActive(false);
+        // Disable target
         _target.gameObject.SetActive(false);
 
         Invoke("LoadCredits", 2f);
     }
 
+    private void DeactivateSlider()
+    {
+        gameObject.SetActive(false);
+    }
 
 
     private void LoadCredits()

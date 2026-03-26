@@ -724,6 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381432775}
   - component: {fileID: 381432776}
+  - component: {fileID: 381432777}
   m_Layer: 0
   m_Name: TopOfLock
   m_TagString: Untagged
@@ -805,6 +806,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &381432777
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381432774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1919b4fadd2c344193f1d6ee67c3e4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &409698191
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +841,7 @@ GameObject:
   - component: {fileID: 409698195}
   - component: {fileID: 409698194}
   - component: {fileID: 409698196}
+  - component: {fileID: 409698197}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -965,6 +989,28 @@ MonoBehaviour:
   highScoreText: {fileID: 68169770}
   _topOfLock: {fileID: 381432775}
   _range: 2
+--- !u!95 &409698197
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409698191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56532e92f40daac4eb1c0cf24eb03440, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
