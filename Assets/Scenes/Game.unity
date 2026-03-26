@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _centre: {fileID: 122562627}
-  speed: 0
+  speed: 39
   clockwise: 1
 --- !u!114 &409698195
 MonoBehaviour:
@@ -963,6 +963,7 @@ MonoBehaviour:
   playerMovementScript: {fileID: 409698194}
   scoreText: {fileID: 333764182}
   highScoreText: {fileID: 68169770}
+  _topOfLock: {fileID: 381432775}
   _range: 2
 --- !u!1 &519420028
 GameObject:
@@ -1211,7 +1212,7 @@ Transform:
   m_GameObject: {fileID: 742305114}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6554003, y: -2.33267, z: 0}
+  m_LocalPosition: {x: 3.6554003, y: -2.33267, z: -0.2}
   m_LocalScale: {x: 2.2626786, y: 2.2626786, z: 2.2626786}
   m_ConstrainProportionsScale: 0
   m_Children: []

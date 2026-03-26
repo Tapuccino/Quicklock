@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerGameplay : MonoBehaviour
 {
@@ -24,23 +25,26 @@ public class PlayerGameplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI highScoreText;
 
+    [SerializeField]
+    private Transform _topOfLock;
+
     [Header("Values")]
     [SerializeField]
     private float _range;
 
     private int highScore = 0;
 
+    private const int _winScore = 40;
+
 
     private void OnPress(InputAction.CallbackContext obj)
     {
         float distance = Vector2.Distance(transform.position, _target.position);
 
-        if (distance <= _range)
-        {
+        if (distance <= _range) {
             SuccessfulHit();
         }
-        else
-        {
+        else {
             FailedHit();
         }
     }
@@ -65,6 +69,11 @@ public class PlayerGameplay : MonoBehaviour
         // Update UI
         scoreText.text = playerMovementScript.speed.ToString();
         highScoreText.text = $"Highscore\n{highScore.ToString()}";
+
+        // Loading credits scene
+        if (playerMovementScript.speed == _winScore) {
+            EndingSequence();
+        }
     }
 
 
@@ -75,6 +84,36 @@ public class PlayerGameplay : MonoBehaviour
 
         // Update UI
         scoreText.text = playerMovementScript.speed.ToString();
+    }
+
+
+    private void EndingSequence()
+    {
+        _topOfLock.position += new Vector3(0f, 5f);
+
+        SpriteRenderer sliderSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        Color sliderColor = sliderSpriteRenderer.color;
+        sliderColor.a = 0;
+        sliderSpriteRenderer.color = sliderColor;
+
+        SpriteRenderer targetSpriteRenderer = _target.GetComponent<SpriteRenderer>();
+
+        Color targetColor = targetSpriteRenderer.color;
+        targetColor.a = 0;
+        targetSpriteRenderer.color = targetColor;
+
+        gameObject.SetActive(false);
+        _target.gameObject.SetActive(false);
+
+        Invoke("LoadCredits", 2f);
+    }
+
+
+
+    private void LoadCredits()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
