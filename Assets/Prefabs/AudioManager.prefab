@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8509025010568004382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17917223466094582}
+  - component: {fileID: 7770596312048697531}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &17917223466094582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509025010568004382}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 407.1454, y: 450.66733, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7770596312048697531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509025010568004382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc5cd662759ba642b3eb5c2c623ae9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  sounds:
+  - name: HitTarget
+    clip: {fileID: 8300000, guid: f1c1776ac782c8546bc0afc3c1594d04, type: 3}
+    volume: 0.5
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: fc7fb5e356094434eb5c05a8bd51c033, type: 3}
+    volume: 0.5
+    pitch: 1
+    looping: 1
+    source: {fileID: 0}
+  - name: WinningSong
+    clip: {fileID: 8300000, guid: 64f5718079ed7634db34038a9b724bba, type: 3}
+    volume: 0.5
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}

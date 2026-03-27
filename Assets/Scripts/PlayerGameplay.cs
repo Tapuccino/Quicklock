@@ -57,6 +57,9 @@ public class PlayerGameplay : MonoBehaviour
 
     private void SuccessfulHit()
     {
+        // Play SFX
+        Object.FindFirstObjectByType<AudioManager>().Play("HitTarget");
+
         // Send slider in opposite direction.
         playerMovementScript.clockwise = !playerMovementScript.clockwise;
 
@@ -116,6 +119,8 @@ public class PlayerGameplay : MonoBehaviour
 
     private void LoadCredits()
     {
+        Object.FindFirstObjectByType<AudioManager>().Play("WinningSong");
+        Object.FindFirstObjectByType<AudioManager>().Pause("Theme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
