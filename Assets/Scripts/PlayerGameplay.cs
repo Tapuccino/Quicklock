@@ -54,11 +54,10 @@ public class PlayerGameplay : MonoBehaviour
         }
     }
 
-
     private void SuccessfulHit()
     {
         // Play SFX
-        Object.FindFirstObjectByType<AudioManager>().Play("HitTarget");
+        Object.FindFirstObjectByType<AudioManager>().Play("HitTarget", 0.8f, 1.2f);
 
         // Send slider in opposite direction.
         playerMovementScript.clockwise = !playerMovementScript.clockwise;
@@ -79,14 +78,17 @@ public class PlayerGameplay : MonoBehaviour
         highScoreText.text = $"Highscore\n{highScore.ToString()}";
 
         // Win the game
-        if (playerMovementScript.speed == _winScore) {
+        if (playerMovementScript.speed == _winScore)
+        {
             EndingSequence();
         }
     }
 
-
     private void FailedHit()
     {
+        // Play SFX
+        Object.FindFirstObjectByType<AudioManager>().Play("Fail", 0.8f, 1.2f);
+
         // Reset player speed
         playerMovementScript.speed = 0;
 
@@ -97,6 +99,10 @@ public class PlayerGameplay : MonoBehaviour
 
     private void EndingSequence()
     {
+        // Pause BGM, Play win song
+        Object.FindFirstObjectByType<AudioManager>().Play("WinningSong");
+        Object.FindFirstObjectByType<AudioManager>().Pause("Theme");
+
         // Animate unlocking
         _topOfLockAnimator = _topOfLock.GetComponent<Animator>();
         _topOfLockAnimator.SetTrigger("Unlock");
@@ -119,8 +125,6 @@ public class PlayerGameplay : MonoBehaviour
 
     private void LoadCredits()
     {
-        Object.FindFirstObjectByType<AudioManager>().Play("WinningSong");
-        Object.FindFirstObjectByType<AudioManager>().Pause("Theme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

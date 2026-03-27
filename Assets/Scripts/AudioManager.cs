@@ -51,6 +51,25 @@ public class AudioManager : MonoBehaviour
         soundToPlay.source.Play();
     }
 
+    /// <summary>
+    /// Input 2 pitches to randomise between, or none to not randomise pitch.
+    /// </summary>
+    /// <param name="randomLowerPitch">Inclusive</param>
+    /// <param name="randomHigherPitch">Inclusive</param>
+    public void Play(string name, float randomLowerPitch, float randomHigherPitch)
+    {
+        Sound soundToPlay = Array.Find(sounds, sound => sound.name == name);
+
+        if (soundToPlay == null)
+        {
+            Debug.Log("Sound not found to play"); return;
+        }
+
+        soundToPlay.source.pitch = UnityEngine.Random.Range(randomLowerPitch, randomHigherPitch);
+        soundToPlay.source.Play();
+    }
+
+
     public void Pause(string name)
     {
         Sound soundToPause = Array.Find(sounds, sound => sound.name == name);
