@@ -5,6 +5,13 @@ using TMPro;
 
 public class Stopwatch : MonoBehaviour
 {
+    private static string _finalTime;
+
+    public static string FinalTime
+    {
+        get { return _finalTime; }
+    }
+
     private float _currentTime;
     private bool _isPlaying;
 
@@ -38,5 +45,7 @@ public class Stopwatch : MonoBehaviour
     public void StopStopwatch()
     {
         _isPlaying = false;
+        TimeSpan time = TimeSpan.FromSeconds(_currentTime);
+        _finalTime = stopwatchText.text = time.ToString(@"m\:ss\:fff");
     }
 }
