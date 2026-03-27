@@ -30,6 +30,8 @@ public class PlayerGameplay : MonoBehaviour
     [SerializeField]
     private Transform _topOfLock;
 
+    [SerializeField] private Stopwatch _stopwatch;
+
     [Header("Values")]
     [SerializeField]
     private float _range;
@@ -99,6 +101,9 @@ public class PlayerGameplay : MonoBehaviour
 
     private void EndingSequence()
     {
+        // Stop stopwatch
+        _stopwatch.StopStopwatch();
+
         // Pause BGM, Play win song
         Object.FindFirstObjectByType<AudioManager>().Play("WinningSong");
         Object.FindFirstObjectByType<AudioManager>().Pause("Theme");
