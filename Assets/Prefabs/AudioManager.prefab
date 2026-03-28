@@ -53,13 +53,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 15529450e5bb65743b350046cf9c61ea, type: 3}
-    volume: 0.4
+    volume: 0.5
     pitch: 1
     looping: 1
     source: {fileID: 0}
   - name: WinningSong
     clip: {fileID: 8300000, guid: 64f5718079ed7634db34038a9b724bba, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     looping: 0
     source: {fileID: 0}

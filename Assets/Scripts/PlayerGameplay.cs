@@ -5,36 +5,33 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerGameplay : MonoBehaviour
 {
     [Header("Assignments")]
-    [SerializeField]
-    private InputActionReference _spacebar;
+    [SerializeField] private InputActionReference _spacebar;
 
-    [SerializeField]
-    private Transform _target;
+    [SerializeField] private InputActionReference _mouseClick;
 
-    [SerializeField]
-    private Transform _centre;
+    [SerializeField] private Transform _target;
 
-    [SerializeField] 
-    private PlayerMovement playerMovementScript;
+    [SerializeField] private Transform _centre;
 
-    [SerializeField]
-    private TextMeshProUGUI scoreText;
+    [SerializeField] private PlayerMovement playerMovementScript;
 
-    [SerializeField]
-    private TextMeshProUGUI highScoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    [SerializeField]
-    private Transform _topOfLock;
+    [SerializeField] private TextMeshProUGUI highScoreText;
+
+    [SerializeField] private Transform _topOfLock;
 
     [SerializeField] private Stopwatch _stopwatch;
 
+    [SerializeField] private Button _menuButton;
+
     [Header("Values")]
-    [SerializeField]
-    private float _range;
+    [SerializeField] private float _range;
 
     private int highScore = 0;
 
@@ -104,6 +101,9 @@ public class PlayerGameplay : MonoBehaviour
         // Stop stopwatch
         _stopwatch.StopStopwatch();
 
+        // Deactivate Menu button
+        _menuButton.enabled = false;
+
         // Pause BGM, Play win song
         Object.FindFirstObjectByType<AudioManager>().Play("WinningSong");
         Object.FindFirstObjectByType<AudioManager>().Pause("Theme");
@@ -137,11 +137,13 @@ public class PlayerGameplay : MonoBehaviour
     private void OnEnable()
     {
         _spacebar.action.started += OnPress;
+        _mouseClick.action.started += OnPress;
     }
 
 
     private void OnDisable()
     {
         _spacebar.action.started -= OnPress;
+        _mouseClick.action.started -= OnPress;
     }
 }

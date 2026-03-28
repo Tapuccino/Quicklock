@@ -82,6 +82,18 @@ public class AudioManager : MonoBehaviour
         soundToPause.source.Pause();
     }
 
+    public void Stop(string name)
+    {
+        Sound soundToStop = Array.Find(sounds, sound => sound.name == name);
+
+        if (soundToStop == null)
+        {
+            Debug.Log("Sound not found to pause");
+        }
+
+        soundToStop.source.Stop();
+    }
+
     /// <summary>
     /// volume must be between 0-1
     /// </summary>
@@ -96,5 +108,19 @@ public class AudioManager : MonoBehaviour
         }
 
         soundToChangeVolume.source.volume = Mathf.Clamp01(volume);
+    }
+
+    public float GetCurrentVolume(string name)
+    {
+        Sound soundToGetVolume = Array.Find(sounds, sound => sound.name == name);
+
+        if (soundToGetVolume == null)
+        {
+            Debug.Log("Sound not found to get volume");
+            return 0;
+        }
+
+        float returnVolume = soundToGetVolume.source.volume;
+        return returnVolume;
     }
 }
