@@ -950,7 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _centre: {fileID: 122562627}
-  speed: 39
+  speed: 0
   clockwise: 1
 --- !u!114 &409698195
 MonoBehaviour:
